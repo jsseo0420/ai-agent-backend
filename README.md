@@ -68,6 +68,27 @@ npm start
 브라우저에서 http://localhost:3000 접속 → 회원가입 / 로그인.
 끌 때는 터미널에서 `Ctrl+C`.
 
+## 터미널 명령 (todo CLI)
+
+웹 앱과 같은 Supabase 저장소를 터미널에서 다룹니다. `.env` 의 테스트 계정으로 로그인하므로 웹과 같은 RLS가 적용됩니다.
+
+### 준비
+`.env` 에 CLI가 로그인할 계정을 넣습니다. (웹에서 가입한 계정이나 테스트용 계정)
+```
+TODO_EMAIL=todo-cli-test@example.com
+TODO_PASSWORD=...
+```
+
+### 명령
+| 명령 | 하는 일 |
+|---|---|
+| `npm run todo -- add "보고서 쓰기" --due 2026-11-05 --tags 일,급함 --memo "메모"` | 할 일 추가 (`--due`, `--tags`, `--memo` 는 선택) |
+| `npm run todo -- list` | 목록 (`--active` / `--done` / `--today` / `--overdue`, `--tag 태그` 로 거르기) |
+| `npm run todo -- done 12` | 완료 표시 (id는 `list` 맨 앞 숫자) |
+| `npm run todo -- summary` | 오늘 완료한 할 일과 남은 할 일·마감 지남 개수 |
+
+> `npm link` 를 한 번 실행하면 `todo add ...` 처럼 짧게 쓸 수 있습니다.
+
 ## 배포 (Render)
 
 | 항목 | 값 |
